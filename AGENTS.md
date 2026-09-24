@@ -10,12 +10,11 @@
 make up        # docker compose up -d --build: сервис на http://localhost:8080, база MySQL 8
 make test      # PHPUnit
 make lint      # php -l по backend/ и tests/
-curl http://localhost:8080/health
 ```
 Без Docker: `composer install`, затем `make test` и `make lint` работают локально.
 
 ## Структура
-- `backend/` — PHP 8.3 + Slim: `src/Domain` (правила), `src/Http`, `src/Repository`, `config/rules.php`, `public/`
+- `backend/` — PHP 8.3 + Slim: `src/Domain` (правила), `src/Http`, `src/Repository`, `src/Support`, `config/rules.php`, `public/`
 - `frontend/` — форма заявки на ванильном JS
 - `db/` — `schema.sql` и `seed.sql` (синтетические заявки)
 - `tests/` — PHPUnit: `Unit/` и `Feature/`
