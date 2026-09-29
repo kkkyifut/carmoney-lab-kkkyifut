@@ -97,8 +97,11 @@ final class AssessmentServiceTest extends TestCase
 
     public function testMissingMileageFailsValidationBeforeReachingMileageRule(): void
     {
+        $payload = $this->payload(450000, 900000);
+        unset($payload['mileage']);
+
         try {
-            $this->service->assess($this->payload(450000, 900000) + ['mileage' => null]);
+            $this->service->assess($payload);
             self::fail('Ожидали ValidationException');
         } catch (ValidationException $exception) {
             self::assertArrayHasKey('mileage', $exception->errors());
